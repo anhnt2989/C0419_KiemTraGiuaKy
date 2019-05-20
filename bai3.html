@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chương trình sử dụng remote điều khiển TV</title>
+</head>
+<body>
+<script>
+    let Remote = function (number,TV) {
+        this.number1 = number;
+        this.TeleV = TV;
+
+        this.channelSelect = function () {
+            this.TeleV.currentChannel = this.number1;
+            return this.number1;
+        };
+        this.changeVol = function (value) {
+            this.currentVolume += value;
+            return this.currentVolume;
+        };
+        this.PowerOff = function (tvStatus) {
+            if (tvStatus === true) {
+                tvStatus = false;
+            }
+        };
+    };
+
+    const TiVi = function (currentChannel, currentVolume, status) {
+        this.currentChannel = currentChannel;
+        this.currentVolume = currentVolume;
+        this.status = status;
+
+        this.switchPowerStatus = function () {
+            if (this.status === false) {
+                this.status = true;
+            } else if (this.status === true) {
+                this.status = false;
+            }
+        };
+        this.changeChannel = function (channel) {
+            this.currentChannel = channel;
+        };
+        this.changeVolume = function (volume) {
+            this.currentVolume = this.currentVolume + volume;
+        }
+    };
+
+    let tivi = new TiVi(1, 5, false);
+
+    let remote = new Remote(15,tivi);
+    console.log(remote.channelSelect());
+    console.log(tivi.currentChannel);
+    console.log(remote.changeVol(4));
+    // console.log(tivi.currentVolume);
+    // console.log(tivi.currentChannel);
+    // tivi.switchPowerStatus();
+    // console.log(tivi.status);
+    // tivi.switchPowerStatus();
+    // console.log(tivi.status);
+    // tivi.switchPowerStatus();
+    // console.log(tivi.status);
+    //
+    // tivi.changeChannel(7);
+    // console.log(tivi.currentChannel);
+    // tivi.changeVolume(2);
+    // console.log(tivi.currentVolume);
+    //
+    // remote.PowerOff(tivi.status);
+    // console.log(tivi.status);
+
+</script>
+</body>
+</html>

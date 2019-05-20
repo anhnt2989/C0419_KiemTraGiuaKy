@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<style>
+    .nd {
+        text-align: center;
+    }
+    p {
+        font-size: larger;
+    }
+</style>
+<body>
+<div class="nd">
+    <input type="text" id="input" placeholder="Nhập chuỗi ký tự vào đây"/>
+    <br><br>
+    <input type="text" id="input1" placeholder="Nhập ký tự cần tra vào đây"/>
+    <br><br><br>
+    <p>Nhấn F5 để hiện kết quả =))</p>
+    Số lần xuất hiện của ký tự trong chuỗi =
+    <p id="result"></p>
+</div>
+            <script>
+                let array = (document.getElementById("input").value).split("");
+                console.log(array);
+                let char = document.getElementById("input1").value.toString();
+                console.log(char);
+                let count = 0;
+                    for (let i=0;i<array.length;i++) {
+                        if (array[i] === char) {
+                            count++;
+                            document.getElementById("result").innerHTML = count;
+                        } else {
+                            document.getElementById("result").innerHTML = -1;
+                        }
+                    }
+            </script>
+</body>
+</html>

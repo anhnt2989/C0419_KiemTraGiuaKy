@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<style>
+    .nd {
+        text-align: center;
+    }
+</style>
+<body>
+<div class="nd">
+<p>Nhập vào các phần tử số của mảng</p>
+(Lưu ý : các phần tử được ngăn cách bởi dấu ",")
+<br><br>
+<input type="text" id="input"><br><br>
+    <input type="button" value="Find" onclick="calculate();">
+<br><br>
+<p>Nhấn F5 trước khi nhận kết quả >.< (vì tool làm vội nên hơi ngu)</p>
+Tích của 2 phần tử liền kề lớn nhất trong mảng =
+<p id="result"></p>
+</div>
+            <script>
+                let array = (document.getElementById("input").value).split(",");
+                // console.log(array);
+                let max=0;
+                function calculate() {
+                    for (let i = 0; i < array.length; i++) {
+                        if (parseInt(array[i]) * parseInt(array[i + 1]) > max) {
+                            max = parseInt(array[i]) * parseInt(array[i + 1]);
+                            document.getElementById("result").innerHTML = max;
+                        }
+                    }
+                }
+            </script>
+</body>
+</html>
